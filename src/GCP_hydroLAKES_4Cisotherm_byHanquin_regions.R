@@ -186,7 +186,7 @@ iceCorrection <- function(hL){
   )
   
   # plot:
-  barplot(rbind(IceFree_km2, iceCorrected_km2, iceMeltCorrected_km2), names.arg=parameter, beside=T, 
+  barplot(rbind(IceFree_km2, iceCorrected_km2, iceMeltCorrected_km2), names.arg=parameter, beside=T, ylim=c(0, 969863),
           main=paste("Hanquin Region:", uniqReg[i]), ylab="Area (km2)", col=c("darkgray", "white",  "light blue"))
   legend("topright", c("no ice correction", "ice corrected", "melt corrected"), fill=c("darkgray", "white", "light blue"))
   mtext("0C Isotherm")
