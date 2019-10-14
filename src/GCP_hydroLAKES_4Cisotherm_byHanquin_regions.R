@@ -18,7 +18,7 @@ wDir = "E:/research/2019_10_08_Global_Carbon_Project/git/GCP"
 # read in hydroLakes:
 inPath = paste0(wDir, "/in/GISout/hydroLAKES/0C_isotherm_reg/hydroLAKES_0C_isotherm_Hanquin_regions.dbf")
 outDir = paste0(wDir, "/out")
-outPathDir = paste0(outDir, "/hydroLakes_0C_isotherm_Hanquin_regions")
+outPathDir = paste0(outDir, "/hydroLakes_0C_isotherm_byHanquin_regions")
 hL_full = read.dbf(inPath)
 
 
@@ -208,7 +208,7 @@ uniqReg = sort(unique(hL_full$reg))
 
 outPaths = paste0(outPathDir, "/hydroLakes_0C_isotherm_Hanquin_region_", uniqReg, ".csv")
 
-pdfPath = paste0(outDir, "/fig/hydroLakes_0C_isotherm_Hanquin_regions.pdf")
+pdfPath = paste0(outDir, "/fig/hydroLakes_0C_isotherm_byHanquin_regions.pdf")
 pdf(pdfPath, 15, 10)
 
 for (i in 1:length(uniqReg)){
@@ -217,13 +217,13 @@ for (i in 1:length(uniqReg)){
   
   oTab = iceCorrection(hL)
   
-  # add table to one big output table:
+  # alt option: add table to one big output table:
   # if (i == 1){
   #   oTab = cbind(tab, hanquin_region = rep(uniqReg[i], nrow(tab)))
   # } else {
   #   oTab = rbind(oTab, cbind(tab, hanquin_region = rep(uniqReg[i], nrow(tab))))
   # }
-
+  
   # write out
   write.csv(oTab, outPaths[i], row.names=F)
   
